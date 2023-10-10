@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import Colors from "../../utils/Colors";
 
 const Title = ({ children }) => {
@@ -9,6 +9,7 @@ const Title = ({ children }) => {
   );
 };
 
+const deviceWidth = Dimensions.get('window').width;
 export default Title;
 
 const styles = StyleSheet.create({
@@ -17,11 +18,12 @@ const styles = StyleSheet.create({
     padding: 12,
     textAlign: "center",
     borderColor: Colors.white,
-    fontSize: 26,
+    fontSize: deviceWidth < 350 ? 22 : 24,
     fontFamily: 'open-sans-bold',
-    // fontWeight: "bold",
     color: Colors.white,
     backgroundColor: Colors.primary500,
     borderRadius: 8,
+    maxWidth: '80%',
+    width: 300
   },
 });
